@@ -1,0 +1,38 @@
+digraph stockplan {
+
+  Consents -> "Board Consent";
+
+  "Board Consent" -> "Stock Plan";
+  "Board Consent" -> "Standard Option Packet";
+  "Board Consent" -> "Early-Exercise Option Packet";
+  "Board Consent" -> "Stock Purchase Packet";
+  "Board Consent" -> "Stock Grant Packet";
+  "Board Consent" -> "Valuation Report";
+  "Board Consent" -> "Grants Table";
+
+  Consents -> "Stockholder Consent";
+
+  "Stockholder Consent" -> "Stock Plan";
+
+  "Stock Plan" -> "California Addendum";
+
+  Forms -> "Option Grants";
+
+  "Option Grants" -> "Standard Option Packet";
+
+  "Standard Option Packet" -> "Notice of Stock Option Grant";
+  "Standard Option Packet" -> "Stock Option Agreement";
+  "Standard Option Packet" -> "Exercise Agreement";
+  "Standard Option Packet" -> "Country-Specific Addendum";
+
+  "Option Grants" -> "Early-Exercise Option Packet";
+
+  "Early-Exercise Option Packet" -> "Notice of Stock Option Grant";
+  "Early-Exercise Option Packet" -> "Stock Option Agreement";
+  "Early-Exercise Option Packet" -> "Exercise Agreement";
+  "Early-Exercise Option Packet" -> "Country-Specific Addendum";
+
+  "Early-Exercise Option Packet" -> "83(b) Acknowledgment";
+  "Early-Exercise Option Packet" -> "83(b) Election";
+  "Early-Exercise Option Packet" -> "Country-Specific Addendum";
+}
