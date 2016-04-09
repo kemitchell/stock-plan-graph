@@ -1,6 +1,35 @@
 digraph stockplan {
 
-  Consents -> "Board Consent";
+  subgraph cluster_consents {
+    label="Consents";
+    graph[style=solid];
+    "Board Consent";
+    "Stockholder Consent";
+  }
+
+  subgraph cluster_awards {
+    label="Awards";
+    graph[style=solid];
+
+    subgraph cluster_options {
+      label="Option Awards";
+      graph[style=solid];
+      "Early-Exercise Option Packet";
+      "Standard Option Packet";
+    }
+
+    subgraph cluster_stock {
+      label="Stock Awards";
+      graph[style=solid];
+      "Stock Grant Packet";
+      "Stock Purchase Packet";
+    }
+  }
+
+  subgraph cluster_83b {
+    "83(b) Acknowledgment";
+    "83(b) Election";
+  }
 
   "Board Consent" -> "Stock Plan";
   "Board Consent" -> "Standard Option Packet";
@@ -10,29 +39,37 @@ digraph stockplan {
   "Board Consent" -> "Valuation Report";
   "Board Consent" -> "Grants Table";
 
-  Consents -> "Stockholder Consent";
-
   "Stockholder Consent" -> "Stock Plan";
 
   "Stock Plan" -> "California Addendum";
-
-  Forms -> "Option Grants";
-
-  "Option Grants" -> "Standard Option Packet";
 
   "Standard Option Packet" -> "Notice of Stock Option Grant";
   "Standard Option Packet" -> "Stock Option Agreement";
   "Standard Option Packet" -> "Exercise Agreement";
   "Standard Option Packet" -> "Country-Specific Addendum";
 
-  "Option Grants" -> "Early-Exercise Option Packet";
+  "Stock Option Agreement" -> "Stock Plan";
 
   "Early-Exercise Option Packet" -> "Notice of Stock Option Grant";
-  "Early-Exercise Option Packet" -> "Stock Option Agreement";
+  "Early-Exercise Option Packet" -> "Early-Exercise Stock Option Agreement";
   "Early-Exercise Option Packet" -> "Exercise Agreement";
   "Early-Exercise Option Packet" -> "Country-Specific Addendum";
+  "Early-Exercise Option Packet" -> "83(b) Packet";
 
-  "Early-Exercise Option Packet" -> "83(b) Acknowledgment";
-  "Early-Exercise Option Packet" -> "83(b) Election";
-  "Early-Exercise Option Packet" -> "Country-Specific Addendum";
+  "Early-Exercise Stock Option Agreement" -> "Stock Plan";
+
+  "Stock Grant Packet" -> "Restricted Stock Agreement";
+  "Stock Grant Packet" -> "Stock Power";
+  "Stock Grant Packet" -> "83(b) Packet";
+
+  "Restricted Stock Agreement" -> "Stock Plan";
+
+  "Stock Purchase Packet" -> "Restricted Stock Purchase Agreement";
+  "Stock Purchase Packet" -> "Stock Power";
+  "Stock Purchase Packet" -> "83(b) Packet";
+
+  "Restricted Stock Purchase Agreement" -> "Stock Plan";
+
+  "83(b) Packet" -> "83(b) Election";
+  "83(b) Packet" -> "83(b) Acknowledgment";
 }
