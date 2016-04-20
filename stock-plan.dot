@@ -1,5 +1,7 @@
 digraph stockplan {
 
+  node[shape=note, width=1, height=1];
+
   subgraph cluster_consents {
     label="Consents";
     graph[style=solid];
@@ -8,18 +10,18 @@ digraph stockplan {
   }
 
   subgraph cluster_awards {
-    label="Awards";
+    label="Award Agreements";
     graph[style=solid];
 
     subgraph cluster_options {
-      label="Option Awards";
+      label="Option Award Agreements";
       graph[style=solid];
       "Early-Exercise Option Notice";
       "Standard Option Notice";
     }
 
     subgraph cluster_stock {
-      label="Stock Awards";
+      label="Stock Award Agreements";
       graph[style=solid];
       "Restricted Stock Purchase Agreement";
       "Restricted Stock Agreement";
@@ -51,16 +53,18 @@ digraph stockplan {
 
   "Stock Option Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 
+  EENRSPA[label="Early Exercise Notice\nand\nRestricted Stock Purchase Agreement"];
+
   "Early-Exercise Option Notice" -> "Early-Exercise Stock Option Agreement" [label=attaches];
-  "Early-Exercise Stock Option Agreement" -> "Early Exercise Notice and Restricted Stock Purchase Agreement" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> EENRSPA [label=attaches];
   "Early-Exercise Stock Option Agreement" -> "Exercise Agreement" [label=attaches];
   "Early-Exercise Stock Option Agreement" -> "Country-Specific Addendum" [label=attaches];
   "Early-Exercise Stock Option Agreement" -> "83(b) Acknowledgment" [label=attaches];
   "Early-Exercise Stock Option Agreement" -> "83(b) Election" [label=attaches];
 
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "Stock Power" [label=attaches];
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Acknowledgment" [label=attaches];
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Election" [label=attaches];
+  EENRSPA -> "Stock Power" [label=attaches];
+  EENRSPA -> "83(b) Acknowledgment" [label=attaches];
+  EENRSPA -> "83(b) Election" [label=attaches];
 
   "Early-Exercise Stock Option Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 
