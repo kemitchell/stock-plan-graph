@@ -32,45 +32,45 @@ digraph stockplan {
     "83(b) Election";
   }
 
-  "Board Consent" -> "Stock Plan";
-  "Board Consent" -> "Standard Option Notice";
-  "Board Consent" -> "Early-Exercise Option Notice";
-  "Board Consent" -> "Restricted Stock Purchase Agreement";
-  "Board Consent" -> "Restricted Stock Agreement";
-  "Board Consent" -> "Valuation Report";
-  "Board Consent" -> "Grants Table";
+  "Board Consent" -> "Stock Plan" [label=attaches];
+  "Board Consent" -> "Standard Option Notice" [label=attaches];
+  "Board Consent" -> "Early-Exercise Option Notice" [label=attaches];
+  "Board Consent" -> "Restricted Stock Purchase Agreement" [label=attaches];
+  "Board Consent" -> "Restricted Stock Agreement" [label=attaches];
+  "Board Consent" -> "Valuation Report" [label=attaches];
+  "Board Consent" -> "Grants Table" [label=attaches];
 
-  "Stockholder Consent" -> "Stock Plan";
+  "Stockholder Consent" -> "Stock Plan" [label=attaches];
 
-  "Stock Plan" -> "California Addendum";
-  "Stock Plan" -> "Country-Specific Addendum";
+  "Stock Plan" -> "California Addendum" [label=attaches];
+  "Stock Plan" -> "Country-Specific Addendum" [label=attaches];
 
-  "Standard Option Notice" -> "Stock Option Agreement";
-  "Stock Option Agreement" -> "Exercise Agreement";
-  "Stock Option Agreement" -> "Country-Specific Addendum";
+  "Standard Option Notice" -> "Stock Option Agreement" [label=attaches];
+  "Stock Option Agreement" -> "Exercise Agreement" [label=attaches];
+  "Stock Option Agreement" -> "Country-Specific Addendum" [label=attaches];
 
-  "Stock Option Agreement" -> "Stock Plan";
+  "Stock Option Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 
-  "Early-Exercise Option Notice" -> "Early-Exercise Stock Option Agreement";
-  "Early-Exercise Stock Option Agreement" -> "Early Exercise Notice and Restricted Stock Purchase Agreement";
-  "Early-Exercise Stock Option Agreement" -> "Exercise Agreement";
-  "Early-Exercise Stock Option Agreement" -> "Country-Specific Addendum";
-  "Early-Exercise Stock Option Agreement" -> "83(b) Acknowledgment";
-  "Early-Exercise Stock Option Agreement" -> "83(b) Election";
+  "Early-Exercise Option Notice" -> "Early-Exercise Stock Option Agreement" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> "Early Exercise Notice and Restricted Stock Purchase Agreement" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> "Exercise Agreement" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> "Country-Specific Addendum" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> "83(b) Acknowledgment" [label=attaches];
+  "Early-Exercise Stock Option Agreement" -> "83(b) Election" [label=attaches];
 
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "Stock Power";
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Acknowledgment";
-  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Election";
+  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "Stock Power" [label=attaches];
+  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Acknowledgment" [label=attaches];
+  "Early Exercise Notice and Restricted Stock Purchase Agreement" -> "83(b) Election" [label=attaches];
 
-  "Early-Exercise Stock Option Agreement" -> "Stock Plan";
+  "Early-Exercise Stock Option Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 
-  "Restricted Stock Agreement" -> "Stock Power";
-  "Restricted Stock Agreement" -> "83(b) Acknowledgment";
-  "Restricted Stock Agreement" -> "83(b) Election";
-  "Restricted Stock Agreement" -> "Stock Plan";
+  "Restricted Stock Agreement" -> "Stock Power" [label=attaches];
+  "Restricted Stock Agreement" -> "83(b) Acknowledgment" [label=attaches];
+  "Restricted Stock Agreement" -> "83(b) Election" [label=attaches];
+  "Restricted Stock Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 
-  "Restricted Stock Purchase Agreement" -> "Stock Power";
-  "Restricted Stock Purchase Agreement" -> "83(b) Acknowledgment";
-  "Restricted Stock Purchase Agreement" -> "83(b) Election";
-  "Restricted Stock Purchase Agreement" -> "Stock Plan";
+  "Restricted Stock Purchase Agreement" -> "Stock Power" [label=attaches];
+  "Restricted Stock Purchase Agreement" -> "83(b) Acknowledgment" [label=attaches];
+  "Restricted Stock Purchase Agreement" -> "83(b) Election" [label=attaches];
+  "Restricted Stock Purchase Agreement" -> "Stock Plan" [label=incorporates, style=dashed];
 }
